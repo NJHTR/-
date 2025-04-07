@@ -1,0 +1,146 @@
+.sticky-note {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sticky-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.sticky-note-title {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-note-title:hover {
+  color: #1890ff;
+}
+
+.edit-icon {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sticky-note-title:hover .edit-icon {
+  opacity: 1;
+}
+
+.sticky-note-title-input {
+  width: 200px;
+}
+
+.sticky-note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.sticky-note-content {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.6;
+  background: transparent;
+}
+
+.sticky-note-content:focus {
+  outline: none;
+}
+
+.sticky-note-content::placeholder {
+  color: #999;
+}
+
+.sticky-note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #999;
+  user-select: none;
+}
+
+.sticky-note-timestamp {
+  margin: 0;
+}
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  cursor: se-resize;
+  background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
+  border-radius: 0 0 8px 0;
+}
+
+.pin-button,
+.color-button,
+.delete-button {
+  padding: 4px !important;
+  height: 28px !important;
+  width: 28px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(5px);
+}
+
+.pin-button:hover,
+.color-button:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.delete-button {
+  color: rgba(255, 59, 48, 0.8) !important;
+}
+
+.delete-button:hover {
+  background: rgba(255, 59, 48, 0.2) !important;
+  color: rgb(255, 59, 48) !important;
+}
+
+.color-button {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* 自定义滚动条样式 */
+.sticky-note-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sticky-note-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sticky-note-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.sticky-note-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+} 

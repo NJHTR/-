@@ -1,0 +1,409 @@
+.app-layout {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+
+.search-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:hover,
+.search-input:focus {
+  border-color: #1890ff !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2) !important;
+}
+
+.app-content {
+  padding: 88px 24px 24px;
+  position: relative;
+  min-height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.notes-container {
+  position: relative;
+  min-height: 100%;
+}
+
+.sticky-note {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: move;
+  user-select: none;
+}
+
+.note-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.note-content {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.note-content:focus {
+  outline: none;
+}
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  cursor: se-resize;
+}
+
+.add-note-button-container {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1000;
+}
+
+.add-note-button {
+  width: 100%;
+  height: 56px !important;
+  font-size: 24px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none !important;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+}
+
+.add-note-button:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.pin-button,
+.color-button,
+.delete-button {
+  padding: 4px 8px;
+  height: auto;
+}
+
+.color-button {
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+.delete-button {
+  color: #ff4d4f;
+}
+
+.delete-button:hover {
+  color: #ff7875;
+}
+
+.note-list-sidebar {
+  background-color: #fff;
+  border-right: 1px solid #e8e8e8;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.note-list-header {
+  flex-shrink: 0;
+  padding: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 180px) !important; /* 根据header高度调整 */
+}
+
+.note-list-item {
+  padding: 12px 16px !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.note-list-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.note-list-item-content h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.note-list-item-content p {
+  margin: 0 0 8px 0;
+  color: #595959;
+  font-size: 14px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-list-sidebar > .note-list.ant-menu {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  height: auto !important; /* 覆盖antd默认高度 */
+}
+
+.ant-menu-inline {
+  border-right: 0 !important;
+}
+.note-list-item-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.note-detail-content {
+  padding: 24px;
+  background-color: #fff;
+  margin: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 32px);
+}
+
+.note-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.note-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.note-detail-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.note-detail-header h2:hover {
+  color: #1890ff;
+}
+
+.note-detail-textarea {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.note-detail-textarea:focus {
+  outline: none;
+  border-color: #1890ff;
+}
+
+.note-detail-footer {
+  padding-top: 16px;
+  border-top: 1px solid #e8e8e8;
+  color: #999;
+  font-size: 12px;
+}
+
+.note-detail-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #999;
+  font-size: 16px;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* 富文本编辑器样式 */
+.note-detail-editor {
+  flex: 1;
+  margin-bottom: 16px;
+  background: transparent;
+}
+
+.note-detail-editor .ql-container {
+  height: calc(100vh - 400px);
+  background: transparent;
+  border: 1px solid #e8e8e8;
+  border-radius: 0 0 8px 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #262626;
+  transition: all 0.3s ease;
+}
+
+.note-detail-editor .ql-container:hover {
+  border-color: #40a9ff;
+  box-shadow: 0 2px 12px rgba(24, 144, 255, 0.1);
+}
+
+.note-detail-editor .ql-container.ql-focused {
+  border-color: #1890ff;
+  box-shadow: 0 2px 12px rgba(24, 144, 255, 0.15);
+}
+
+.note-detail-editor .ql-toolbar {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px 8px 0 0;
+  padding: 8px;
+}
+
+.note-detail-editor .ql-toolbar button {
+  color: #595959;
+  transition: all 0.3s ease;
+}
+
+.note-detail-editor .ql-toolbar button:hover {
+  color: #1890ff;
+}
+
+.note-detail-editor .ql-toolbar button.ql-active {
+  color: #1890ff;
+}
+
+.note-detail-editor .ql-toolbar .ql-picker {
+  color: #595959;
+}
+
+.note-detail-editor .ql-toolbar .ql-picker-options {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  color: #262626;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.note-detail-editor .ql-toolbar .ql-picker-options .ql-picker-item {
+  color: #262626;
+  padding: 8px 12px;
+}
+
+.note-detail-editor .ql-toolbar .ql-picker-options .ql-picker-item:hover {
+  color: #1890ff;
+  background: #f5f5f5;
+}
+
+.note-detail-editor .ql-toolbar .ql-picker-options .ql-picker-item.ql-selected {
+  color: #1890ff;
+}
+
+.note-detail-editor .ql-editor {
+  padding: 16px;
+  min-height: 300px;
+}
+
+.note-detail-editor .ql-editor p {
+  margin-bottom: 8px;
+}
+
+.note-detail-editor .ql-editor h1,
+.note-detail-editor .ql-editor h2,
+.note-detail-editor .ql-editor h3,
+.note-detail-editor .ql-editor h4,
+.note-detail-editor .ql-editor h5,
+.note-detail-editor .ql-editor h6 {
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+.note-detail-editor .ql-editor ul,
+.note-detail-editor .ql-editor ol {
+  padding-left: 24px;
+  margin-bottom: 8px;
+}
+
+.note-detail-editor .ql-editor a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.note-detail-editor .ql-editor a:hover {
+  text-decoration: underline;
+}
+
+.note-detail-editor .ql-editor img {
+  max-width: 100%;
+  margin: 8px 0;
+  border-radius: 4px;
+}
